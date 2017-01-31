@@ -1,24 +1,20 @@
-# README
+# Ruby on Rails budgeting application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## License
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+To get started with the app, clone the repo and then startup docker:
 
-* System dependencies
+```
+$ docker-compose build
+$ docker-compose run web rails db:create
+$ docker-compose run web rails db:setup
+$ docker-compose up
+```
 
-* Configuration
+Run the test suite to verify that everything is working:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ docker-compose run web rails test
+```

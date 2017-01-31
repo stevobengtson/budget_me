@@ -18,7 +18,11 @@ services:
       DB_HOST: db
     volumes:
       - .:/myapp
+      - bundle-volume:/bundles
     ports:
-      - "3000:3000"
+      - "3300:3000"
     depends_on:
       - db
+
+volumes:
+  bundle-volume:
