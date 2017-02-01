@@ -1,0 +1,11 @@
+<% provide(:title, 'Log In') %>
+<h1>Log In</h1>
+
+<%= bootstrap_form_for(:session, url: login_path) do |f| %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.submit "Log In" %>
+  <hr/>
+  <%= link_to 'Sign Up', signup_url %>
+<% end %>

@@ -46,6 +46,7 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap_form (2.5.3)
     builder (3.2.3)
     byebug (9.0.6)
     coderay (1.1.1)
@@ -189,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-sass (= 3.3.6)
+  bootstrap_form
   byebug
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
