@@ -60,4 +60,20 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = 'a' * 5
     assert_not @user.valid?
   end
+
+  test 'should set remember attributes' do
+    Security.expects(:new_token).returns('test_token')
+    Security.expects(:digest).with('test_token').returns('abcdefg1234')
+    user = users(:admin_user)
+    user.remember
+    assert_equal 'test_token', user.remember_token
+    assert_equal 'abcdefg1234', user.reload.remember_digest
+  end
+
+  test 'should unset remember attributes' do
+    user = users(:admin_user)
+    user.remember_digest = 'abcdefg1234'
+    user.forget
+    assert_nil user.reload.remember_digest
+  end
 end

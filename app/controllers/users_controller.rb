@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    user_id = params[:id] == 'me' ? current_user.try(:id) : params[:id]
+    redirect_to root_url unless user_id.present?
+    @user = User.find(user_id)
   end
 
   def new
@@ -10,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
+      log_in @user, false
       redirect_to root_url
     else
       render new_user_url
