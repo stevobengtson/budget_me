@@ -1,15 +1,10 @@
+# frozen_string_literal: true
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test 'Shows the user profile page for me' do
+  test 'Shows the user profile page for user' do
     log_in_as(users(:admin_user))
-    get users_me_path
-    assert_response :success
-    assert_template 'users/show'
-  end
-
-  test 'Show the user profile page for user_id' do
-    get user_path(users(:admin_user))
+    get profile_path
     assert_response :success
     assert_template 'users/show'
   end
@@ -17,6 +12,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'Show the sign up page' do
     get signup_path
     assert_response :success
-    assert_template 'users/new'
+    assert_template 'users/signup'
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 namespace :test do
   task lib: "test:prepare" do
     $: << "test"

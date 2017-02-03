@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class String
   TRUE_VALUES = ['true', '1', 'yes', 'on', 't']
 
