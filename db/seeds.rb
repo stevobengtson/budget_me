@@ -8,5 +8,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create([
-    { name: 'Admin User', email: 'admin@budgetme.com', password: 'testpass', password_confirmation: 'testpass' }
-])
+              {name: 'Admin User', email: 'admin@budgetme.com', password: 'testpass', password_confirmation: 'testpass'}
+            ])

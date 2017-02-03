@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # For session management we have unique urls
   get '/login',  to: 'sessions#new'
-  post '/login',  to: 'sessions#create'
+  post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/logout', to: 'sessions#destroy' # Added so we can use a simple link
 end

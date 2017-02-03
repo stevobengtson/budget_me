@@ -6,10 +6,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     @user = users(:admin_user)
   end
 
-  test "login with valid information followed by logout" do
+  test 'login with valid information followed by logout' do
     get login_path
-    post login_path, params: { session: { email:    @user.email,
-                                          password: 'password' } }
+    post login_path, params: {session: {email:    @user.email,
+                                        password: 'password'}}
     assert is_logged_in?
     assert_redirected_to root_url
     follow_redirect!
@@ -24,13 +24,13 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  test "login with remembering" do
+  test 'login with remembering' do
     log_in_as(@user, remember_me: '1')
     assert_not_empty cookies['remember_token']
     # assert_equal cookies['remember_token'], assigns(:user).remember_token
   end
 
-  test "login without remembering" do
+  test 'login without remembering' do
     log_in_as(@user, remember_me: '1')
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']

@@ -18,17 +18,17 @@
 
 guard :minitest, spring: 'bin/rails test' do
   # controllers, helpers, lib, mailers, models
-  watch(%r{^app/(.+)\.rb$})                               { |m| "test/#{m[1]}_test.rb" }
+  watch(%r{^app/(.+)\.rb$})                               {|m| "test/#{m[1]}_test.rb" }
   watch(%r{^app/controllers/application_controller\.rb$}) { 'test/controllers' }
-  watch(%r{^app/controllers/(.+)_controller\.rb$})        { |m| "test/integration/#{m[1]}_test.rb" }
-  watch(%r{^app/views/(.+)_mailer/.+})                    { |m| "test/mailers/#{m[1]}_mailer_test.rb" }
+  watch(%r{^app/controllers/(.+)_controller\.rb$})        {|m| "test/integration/#{m[1]}_test.rb" }
+  watch(%r{^app/views/(.+)_mailer/.+})                    {|m| "test/mailers/#{m[1]}_mailer_test.rb" }
   watch(%r{^test/.+_test\.rb$})
-  watch(%r{^test/test_helper\.rb$})                       { 'test' }
+  watch(%r{^test/test_helper\.rb$}) { 'test' }
 end
 
 guard :rubocop do
-  watch(%r{.+\.rb$})
-  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  watch(/.+\.rb$/)
+  watch(%r{(?:.+/)?\.rubocop\.yml$}) {|m| File.dirname(m[0]) }
 end
 
 guard :bundler do
@@ -37,8 +37,8 @@ guard :bundler do
   helper = Guard::Bundler::Verify.new
 
   files = ['Gemfile']
-  files += Dir['*.gemspec'] if files.any? { |f| helper.uses_gemspec?(f) }
+  files += Dir['*.gemspec'] if files.any? {|f| helper.uses_gemspec?(f) }
 
   # Assume files are symlinked from somewhere
-  files.each { |file| watch(helper.real_path(file)) }
+  files.each {|file| watch(helper.real_path(file)) }
 end

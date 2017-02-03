@@ -5,7 +5,7 @@ class SecurityTest < ActiveSupport::TestCase
   test 'it should digest a string' do
   end
 
-  test "authenticated? should return false with nil digest" do
+  test 'authenticated? should return false with nil digest' do
     assert_not Security.authenticated?('', 'test_token')
   end
 

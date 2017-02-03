@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class String
-  TRUE_VALUES = ['true', '1', 'yes', 'on', 't']
+  TRUE_VALUES = %w(true 1 yes on t).freeze
 
   def true?
     TRUE_VALUES.include? downcase
