@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  note: MyText
+  balance: 9.99
+  deactive_at: 2017-02-04 01:23:56
+  account_type_id: 1
+
+two:
+  user: two
+  name: MyString
+  note: MyText
+  balance: 9.99
+  deactive_at: 2017-02-04 01:23:56
+  account_type_id: 1

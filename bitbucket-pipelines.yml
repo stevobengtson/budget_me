@@ -9,12 +9,12 @@ pipelines:
   default:
     - step:
         script:
-          - /etc/init.d/postgresql start
-          - sudo -u postgres sh -c 'createuser root & createdb ruby'
+          # - /etc/init.d/postgresql start
+          # - sudo -u postgres sh -c 'createuser root & createdb ruby'
           - gem install bundler
           - bundle install
-          - rails db:setup RAILS_ENV=test
-          - rails test
+          # - rails db:setup RAILS_ENV=test
+          # - rails test
 
   custom: # Pipelines that are triggered manually
     deployment-to-prod:
