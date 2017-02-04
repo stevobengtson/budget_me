@@ -121,3 +121,6 @@ Lint/Debugger:
 # Style preference
 Style/MethodDefParentheses:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

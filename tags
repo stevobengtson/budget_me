@@ -1,0 +1,73 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ActionDispatch	test/test_helper.rb	/^class ActionDispatch::IntegrationTest$/;"	c
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddIndexToUsersEmail	db/migrate/20170130061404_add_index_to_users_email.rb	/^class AddIndexToUsersEmail < ActiveRecord::Migration[5.0]$/;"	c
+AddPasswordDigestToUsers	db/migrate/20170130062217_add_password_digest_to_users.rb	/^class AddPasswordDigestToUsers < ActiveRecord::Migration[5.0]$/;"	c
+AddRememberDigestToUsers	db/migrate/20170201055335_add_remember_digest_to_users.rb	/^class AddRememberDigestToUsers < ActiveRecord::Migration[5.0]$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:BudgetMe
+ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationHelperTest	test/helpers/application_helper_test.rb	/^class ApplicationHelperTest < ActionView::TestCase$/;"	c
+ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+BudgetMe	config/application.rb	/^module BudgetMe$/;"	m
+Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
+CreateUsers	db/migrate/20170130044548_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[5.0]$/;"	c
+HomeController	app/controllers/home_controller.rb	/^class HomeController < ApplicationController$/;"	c
+HomeControllerTest	test/controllers/home_controller_test.rb	/^class HomeControllerTest < ActionDispatch::IntegrationTest$/;"	c
+Security	app/lib/security.rb	/^module Security$/;"	m
+SecurityTest	test/lib/security_test.rb	/^class SecurityTest < ActiveSupport::TestCase$/;"	c
+SessionsController	app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
+String	config/initializers/extensions.rb	/^class String$/;"	c
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+UserTest	test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersControllerTest	test/controllers/users_controller_test.rb	/^class UsersControllerTest < ActionDispatch::IntegrationTest$/;"	c
+UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+UsersLoginTest	test/integration/user_login_test.rb	/^class UsersLoginTest < ActionDispatch::IntegrationTest$/;"	c
+UsersSignupTest	test/integration/user_signup_test.rb	/^class UsersSignupTest < ActionDispatch::IntegrationTest$/;"	c
+authenticated?	app/lib/security.rb	/^    def authenticated?(remember_digest, remember_token)$/;"	f	class:Security
+change	db/migrate/20170130044548_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20170130061404_add_index_to_users_email.rb	/^  def change$/;"	f	class:AddIndexToUsersEmail
+change	db/migrate/20170130062217_add_password_digest_to_users.rb	/^  def change$/;"	f	class:AddPasswordDigestToUsers
+change	db/migrate/20170201055335_add_remember_digest_to_users.rb	/^  def change$/;"	f	class:AddRememberDigestToUsers
+create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+current_user	app/helpers/sessions_helper.rb	/^  def current_user$/;"	f	class:SessionsHelper
+destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+digest	app/lib/security.rb	/^    def digest(string)$/;"	f	class:Security
+false?	config/initializers/extensions.rb	/^  def false?$/;"	f	class:String
+forget	app/helpers/sessions_helper.rb	/^  def forget(user)$/;"	f	class:SessionsHelper
+forget	app/models/user.rb	/^  def forget$/;"	f	class:User
+full_title	app/helpers/application_helper.rb	/^  def full_title(page_title = '')$/;"	f	class:ApplicationHelper
+gravatar_for	app/helpers/users_helper.rb	/^  def gravatar_for(user, size: 80)$/;"	f	class:UsersHelper
+index	app/controllers/home_controller.rb	/^  def index; end$/;"	f	class:HomeController
+is_logged_in?	test/test_helper.rb	/^  def is_logged_in?$/;"	f	class:ActiveSupport
+log_in	app/helpers/sessions_helper.rb	/^  def log_in(user, remember_user)$/;"	f	class:SessionsHelper
+log_in_as	test/test_helper.rb	/^  def log_in_as(user)$/;"	f	class:ActiveSupport
+log_in_as	test/test_helper.rb	/^  def log_in_as(user, password: 'password', remember_me: '1')$/;"	f	class:ActionDispatch
+log_out	app/helpers/sessions_helper.rb	/^  def log_out$/;"	f	class:SessionsHelper
+logged_in?	app/helpers/sessions_helper.rb	/^  def logged_in?$/;"	f	class:SessionsHelper
+new	app/controllers/sessions_controller.rb	/^  def new; end$/;"	f	class:SessionsController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+new_token	app/lib/security.rb	/^    def new_token$/;"	f	class:Security
+remember	app/helpers/sessions_helper.rb	/^  def remember(user)$/;"	f	class:SessionsHelper
+remember	app/models/user.rb	/^  def remember$/;"	f	class:User
+setup	test/helpers/application_helper_test.rb	/^  def setup$/;"	f	class:ApplicationHelperTest
+setup	test/integration/user_login_test.rb	/^  def setup$/;"	f	class:UsersLoginTest
+setup	test/models/user_test.rb	/^  def setup$/;"	f	class:UserTest
+show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+system!	bin/setup	/^def system!(*args)$/;"	f
+system!	bin/update	/^def system!(*args)$/;"	f
+true?	config/initializers/extensions.rb	/^  def true?$/;"	f	class:String
+user_params	app/controllers/users_controller.rb	/^  def user_params$/;"	f	class:UsersController

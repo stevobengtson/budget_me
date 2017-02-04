@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 ENV['RAILS_ENV'] ||= 'test'
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_group 'App Libraries', 'app/lib'
+
+  minimum_coverage 90
+  refuse_coverage_drop
+end
+
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'mocha/mini_test'
@@ -12,8 +20,8 @@ class ActiveSupport::TestCase
   include ApplicationHelper
 
   # Returns true if a test user is logged in.
-  def is_logged_in?
-    !session[:user_id].nil?
+  def logged_in_as?(user)
+    !session[:user_id].nil? && session[:user_id] == user.id
   end
 
   # Log in as a particular user.

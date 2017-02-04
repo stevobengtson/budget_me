@@ -6,7 +6,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(users(:admin_user))
     get profile_path
     assert_response :success
-    assert_template 'users/show'
+    assert_template 'users/profile'
   end
 
   test 'Show the sign up page' do

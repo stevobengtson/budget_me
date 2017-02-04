@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 class UsersController < ApplicationController
   # GET /profile
-  def show
-    user_id = params[:id] == 'me' ? current_user.try(:id) : params[:id]
-    redirect_to root_url unless user_id.present?
-    @user = User.find(user_id)
+  def profile
+    redirect_to root_url unless logged_in?
+    @user = current_user
   end
 
   # GET /signup
-  def new
+  def signup
     @user = User.new
   end
 
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
       log_in @user, false
       redirect_to root_url
     else
-      render signup_url
+      render 'signup'
     end
   end
 

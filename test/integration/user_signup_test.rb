@@ -10,9 +10,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                        password:              'password',
                                        password_confirmation: 'password'}}
     end
+    assert logged_in_as?(assigns(:user))
     follow_redirect!
     assert_template 'home/index'
-    assert is_logged_in?
   end
 
   test 'invalid signup information' do
@@ -23,6 +23,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                        password:              'foo',
                                        password_confirmation: 'bar'}}
     end
-    assert_template 'users/new'
+    assert_template 'users/signup'
   end
 end

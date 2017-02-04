@@ -43,4 +43,5 @@ group :test do
   gem 'minitest-reporters', '~> 1.1.9'
   gem 'mocha', '~> 1.2.1'
   gem 'rails-controller-testing', '~> 0.1.1'
+  gem 'simplecov', '~> 0.13.0', require: false
 end

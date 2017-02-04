@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   # For general sign up and user profile we have some unique urls
-  get '/signup', to: 'users#new'
-  get '/profile', to: 'users#show'
+  get '/signup', to: 'users#signup'
+  get '/profile', to: 'users#profile'
   post '/users', to: 'users#create'
 
   # For session management we have unique urls

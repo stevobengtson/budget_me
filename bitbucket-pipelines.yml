@@ -3,11 +3,21 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.3.0
+image: ruby:2.4
 
 pipelines:
   default:
     - step:
-        script: # Modify the commands below to build your repository.
-          - bundler --version
+        script:
+          - /etc/init.d/postgresql start
+          - sudo -u postgres sh -c 'createuser root & createdb ruby'
+          - gem install bundler
           - bundle install
+          - rails db:setup RAILS_ENV=test
+          - rails test
+
+  custom: # Pipelines that are triggered manually
+    deployment-to-prod:
+      - step:
+          script:
+            - echo "Manual triggers for deployments are awesome!"
