@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   before_save { email.downcase! }
 
-  has_many :accounts
+  has_many :accounts, dependent: :destroy
+  has_many :category_groups, dependent: :destroy
 
   def remember
     self.remember_token = Security.new_token

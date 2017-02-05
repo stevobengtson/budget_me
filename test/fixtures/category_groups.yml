@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+static_bills:
+  name: Static Bills
+  user: normal_user
+
+shared_household:
+  name: Shared Household
+  user: normal_user

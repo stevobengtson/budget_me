@@ -1,0 +1,8 @@
+<%= bootstrap_form_for(category, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f| %>
+  <%= f.alert_message "Please fix the errors below." %>
+  <%= f.collection_select :category_group_id, policy_scope(CategoryGroup), :id, :name %>
+  <%= f.text_field :name %>
+  <%= f.form_group do %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

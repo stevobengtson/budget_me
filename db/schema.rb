@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,39 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_170_204_014_854) do
+ActiveRecord::Schema.define(version: 20170205020850) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'account_types', force: :cascade do |t|
-    t.string   'name'
-    t.boolean  'budgetable'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "account_types", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "budgetable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'accounts', force: :cascade do |t|
-    t.integer  'user_id'
-    t.string   'name'
-    t.text     'note'
-    t.decimal  'balance'
-    t.datetime 'deactive_at'
-    t.integer  'account_type_id'
-    t.datetime 'created_at',      null: false
-    t.datetime 'updated_at',      null: false
-    t.index ['user_id'], name: 'index_accounts_on_user_id', using: :btree
+  create_table "accounts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "note"
+    t.decimal  "balance"
+    t.datetime "deactive_at"
+    t.integer  "account_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string   'name'
-    t.string   'email'
-    t.datetime 'created_at',                      null: false
-    t.datetime 'updated_at',                      null: false
-    t.string   'password_digest'
-    t.string   'remember_digest'
-    t.boolean  'admin', default: false
-    t.index ['email'], name: 'index_users_on_email', unique: true, using: :btree
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_group_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["category_group_id"], name: "index_categories_on_category_group_id", using: :btree
   end
 
-  add_foreign_key 'accounts', 'users'
+  create_table "category_groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_category_groups_on_user_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "password_digest"
+    t.string   "remember_digest"
+    t.boolean  "admin",           default: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+  end
+
+  add_foreign_key "accounts", "users"
+  add_foreign_key "categories", "category_groups"
+  add_foreign_key "category_groups", "users"
 end

@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy' # Added so we can use a simple link
 
   resources :accounts
+  resources :categories
+  resources :category_groups
 end

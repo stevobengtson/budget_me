@@ -22,7 +22,7 @@
           <td>
             <div class="btn-group" role="group">
               <%= link_to('Show', account, class: 'btn btn-sm btn-info', role: 'button') if policy(account).show? %>
-              <%= link_to('Edit', edit_account_path(account), class: 'btn btn-sm btn-warning', role: 'button') if policy(account).update? %>
+              <%= link_to('Edit', edit_account_path(account), class: 'btn btn-sm btn-warning') if policy(account).update? %>
               <%= link_to('Delete', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger', role: 'button') if policy(account).destroy? %>
             </div>
           </td>

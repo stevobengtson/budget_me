@@ -5,9 +5,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
         <li><%= link_to "Accounts", accounts_url %></li>
-        <% end %>
-        <li><%= link_to "Help",   '#' %></li>
-        <% if logged_in? %>
+        <li><%= link_to "Category Groups", category_groups_url %></li>
+        <li><%= link_to "Categories", categories_url %></li>
         <li><%= link_to 'Log out', logout_url, method: :delete %></li>
         <% else %>
         <li><%= link_to "Log in", login_url %></li>

@@ -3,6 +3,10 @@ class Account < ApplicationRecord
   belongs_to :user
   belongs_to :account_type
 
+  validates :name, presence: true
+  validates :account_type, presence: true
+  validates :name, uniqueness: {scope: :user, message: 'Account names should be unique'}
+
   delegate :name, to: :account_type, prefix: true
 
   def active?
