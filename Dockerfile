@@ -10,6 +10,6 @@ ADD Gemfile.lock $app/Gemfile.lock
 
 ENV BUNDLE_PATH /bundles
 RUN bundle install
-RUN gem install forman
+RUN gem install foreman
 
 ADD . $app
