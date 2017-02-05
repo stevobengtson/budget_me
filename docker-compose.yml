@@ -16,6 +16,8 @@ services:
       DB_PASSWORD: password
       DB_USER: budgetme
       DB_HOST: db
+      RACK_ENV: development
+      PORT: 3000
     volumes:
       - .:/myapp
       - bundle-volume:/bundles
