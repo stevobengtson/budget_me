@@ -15,4 +15,5 @@ if [[ -e "tmp/pids/server.pid" ]]; then
 fi
 
 echo 'startup rails server'
-bundle exec rails s -p 3000 -b '0.0.0.0'
+# bundle exec rails s -p 3000 -b '0.0.0.0'
+forman start
