@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts
   def index
-    @accounts = Account.all
+    @accounts = policy_scope(Account)
   end
 
   # GET /accounts/1
@@ -20,7 +20,7 @@ class AccountsController < ApplicationController
 
   # POST /accounts
   def create
-    @account = Account.new(account_params)
+    @account = Account.new(account_params.merge(user: current_user))
 
     if @account.save
       redirect_to @account, notice: 'Account was successfully created.'
@@ -53,6 +53,6 @@ class AccountsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def account_params
-    params.require(:account).permit(:user_id, :name, :note, :balance, :deactive_at, :account_type_id)
+    params.require(:account).permit(:name, :note, :balance, :account_type_id)
   end
 end

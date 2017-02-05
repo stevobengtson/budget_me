@@ -3,7 +3,10 @@ require 'test_helper'
 
 class AccountsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @account = accounts(:one)
+    @user = users(:normal_user)
+    @account = accounts(:checking)
+    @checking_account_id = account_types(:checking_type).id
+    log_in_as(@user)
   end
 
   test 'should get index' do
@@ -18,11 +21,9 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create account' do
     assert_difference('Account.count') do
-      post accounts_url, params: {account: {account_type_id: @account.account_type_id, balance: @account.balance, deactive_at: @account.deactive_at,
-                                            name: @account.name, note: @account.note, user_id: @account.user_id}}
+      post accounts_url, params: {account: {account_type_id: @checking_account_id, balance: 500.00, name: 'Test Account', note: 'Nothing'}}
     end
-
-    assert_redirected_to account_url(Account.last)
+    assert_redirected_to account_url(assigns(:account))
   end
 
   test 'should show account' do
@@ -36,8 +37,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update account' do
-    patch account_url(@account), params: {account: {account_type_id: @account.account_type_id, balance: @account.balance, deactive_at: @account.deactive_at,
-                                                    name: @account.name, note: @account.note, user_id: @account.user_id}}
+    patch account_url(@account), params: {account: {account_type_id: @checking_account_id, balance: 999.99, name: 'New Name', note: 'New Note'}}
     assert_redirected_to account_url(@account)
   end
 
@@ -45,7 +45,6 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Account.count', -1) do
       delete account_url(@account)
     end
-
     assert_redirected_to accounts_url
   end
 end

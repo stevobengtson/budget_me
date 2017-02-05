@@ -15,3 +15,10 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require_self
+
+setTimeout(function(){
+  $(".alert.alert-info").fadeTo(500, 0, function(){
+    $(this).remove();
+  });
+}, 5000);

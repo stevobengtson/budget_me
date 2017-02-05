@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  budgetable: false
+checking_type:
+  name: Checking
+  budgetable: true
 
-two:
-  name: MyString
+savings_type:
+  name: Savings
+  budgetable: true
+
+investment_type:
+  name: Investment
   budgetable: false

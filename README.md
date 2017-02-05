@@ -32,5 +32,5 @@ Needed:
   * RecurringTransaction - RecurringTransactions, these will become a Transaction
 * Payees
 * Budget - A budget for the family
-  * CategoryGroup
-    * Category
+* CategoryGroup
+  * Category

@@ -1,34 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-<%= @account.active? ? 'primary' : 'danger' %>">
+  <div class="panel-heading">
+    <%= @account.name %> - <small><%= @account.account_type_name %></small>
+  </div>
+  <div class="panel-body">
+    <%= @account.note %>
+  </div>
+  <div class="panel-footer">Balance: <%= @account.balance %></div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @account.user %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @account.name %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @account.note %>
-</p>
-
-<p>
-  <strong>Balance:</strong>
-  <%= @account.balance %>
-</p>
-
-<p>
-  <strong>Deactive at:</strong>
-  <%= @account.deactive_at %>
-</p>
-
-<p>
-  <strong>Account type:</strong>
-  <%= @account.account_type_id %>
-</p>
-
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<div class="row">
+  <div class="col-md-3 col-md-offset-9">
+    <%= link_to 'Edit', edit_account_path(@account), class: 'pull-right btn btn-warning' %>
+  </div>
+</div>

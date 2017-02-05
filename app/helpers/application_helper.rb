@@ -6,4 +6,8 @@ module ApplicationHelper
     return base_title if page_title.empty?
     base_title + ' - ' + page_title
   end
+
+  def bootstrap_class_for(flash_type)
+    {success: 'alert-success', error: 'alert-danger', alert: 'alert-warning', notice: 'alert-info'}[flash_type.to_sym] || flash_type.to_s
+  end
 end

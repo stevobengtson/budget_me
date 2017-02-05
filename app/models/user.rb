@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   before_save { email.downcase! }
 
+  has_many :accounts
+
   def remember
     self.remember_token = Security.new_token
     update_attribute(:remember_digest, Security.digest(remember_token))

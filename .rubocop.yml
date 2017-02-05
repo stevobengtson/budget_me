@@ -1,6 +1,11 @@
 AllCops:
   Exclude:
     - 'vendor/**/*'
+    - 'db/**/*'
+    - 'coverage/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
 
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
