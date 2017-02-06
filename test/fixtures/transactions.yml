@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account: one
+  category: one
+  occurred_at: 2017-02-05 18:14:35
+  memo: MyText
+  credit: 9.99
+  debit: 9.99
+
+two:
+  account: two
+  category: two
+  occurred_at: 2017-02-05 18:14:35
+  memo: MyText
+  credit: 9.99
+  debit: 9.99

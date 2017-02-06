@@ -1,0 +1,23 @@
+<%= bootstrap_form_for(transaction, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+  <%= f.alert_message "Please fix the errors below." %>
+  <%= f.collection_select :account_id, policy_scope(Account), :id, :name %>
+  <%= f.grouped_collection_select :category_id, policy_scope(CategoryGroup), :categories, :name, :id, :name %>
+  <%= f.text_field :occurred_at, label: 'Date', value: formatted_date %>
+  <%= f.text_field :memo %>
+  <%= f.number_field :credit, prepend: '$' %>
+  <%= f.number_field :debit, prepend: '$' %>
+  <%= f.form_group do %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+  $(function () {
+    $('#transaction_occurred_at').datetimepicker({
+      format: 'dddd, MMMM Do YYYY', // Sunday, February 5th 2017
+      defaultDate: "<%== Time.zone.now.to_s(:date_only) %>"
+    });
+
+    // $('#transaction_category_id').combobox();
+  });
+</script>

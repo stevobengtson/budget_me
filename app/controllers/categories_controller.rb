@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 class CategoriesController < ApplicationController
+  before_action :ensure_category_groups
   before_action :set_category, only: %i(show edit update destroy)
 
   # GET /categories
@@ -45,6 +46,11 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def ensure_category_groups
+    return true if current_user.category_groups.count.positive?
+    redirect_to category_groups_url, notice: 'You need to create a category group before accessing categories'
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
