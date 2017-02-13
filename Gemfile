@@ -9,15 +9,11 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap-combobox', '~> 1.2', '>= 1.2.6'
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
 gem 'bootstrap_form', '~> 2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.2.2'
 gem 'kaminari', '~> 1.0.1'
-gem 'momentjs-rails', '>= 2.9.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'pundit', '~> 1.1.0'

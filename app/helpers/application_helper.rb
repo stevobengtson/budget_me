@@ -12,6 +12,15 @@ module ApplicationHelper
   end
 
   def active_link?(controller)
-    ' class="active"' if params[:controller] == controller
+    ' active' if params[:controller] == controller
+  end
+
+  def active_transaction_link?(account_id = nil)
+    return if account_id.nil? || params[:controller] != 'transactions'
+    ' active' if params[:account_id] == account_id
+  end
+
+  def currency(value = 0.00)
+    number_to_currency(value.to_f, precision: 2, negative_format: '(%u%n)').to_s
   end
 end

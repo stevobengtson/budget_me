@@ -1,0 +1,15 @@
+<ul class="nav nav-pills nav-stacked labels-info">
+  <li><h4>Accounts</h4></li>
+  <% accounts_list.each do |account| %>
+  <li>
+    <%= link_to(transactions_url(account_id: account.id)) do %>
+      <i class="fa fa-sign-blank text-danger"></i> <%= account.name %> <i class="fa fa-trash-o pull-right text-danger" data-account-id="<%= account.id %>"></i>
+    <% end %>
+  </li>
+  <% end %>
+  <li>
+    <%= link_to(accounts_url, class: 'pull-right text-success') do %>
+      <i class="fa fa-plus text-success"></i> Add Account
+    <% end %>
+  </li>
+</ul>

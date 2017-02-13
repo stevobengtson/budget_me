@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/logout', to: 'sessions#destroy' # Added so we can use a simple link
 
-  resources :accounts
+  resources :accounts, except: [:new, :show]
   resources :categories
   resources :category_groups
 end

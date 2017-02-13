@@ -1,11 +1,8 @@
 <div class="row">
-  <div class="col-md-6">
-    <%= bootstrap_form_tag(url: transactions_url, layout: :inline, method: :get) do |f| %>
-      <%= f.collection_select :account_id, policy_scope(Account), :id, :name, selected: @account.id %>
-      <%= f.submit 'Show' %>
-    <% end %>
+  <div class="col-md-10">
+    Transactions for account <%= @account.name %>
   </div>
-  <div class="col-md-6 pull-right">
+  <div class="col-md-2 pull-right">
     <%= link_to 'New Transaction', new_transaction_path, class: 'pull-right btn btn-primary' %>
   </div>
 </div>
@@ -16,28 +13,25 @@
       <table class="table table-hover table-condensed table-bordered table-striped">
         <thead>
           <tr>
-            <th>Account</th>
             <th>Category</th>
             <th>Date</th>
             <th>Memo</th>
             <th>Credit</th>
             <th>Debit</th>
-            <th colspan="3">Actions</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
         <tbody>
           <% @transactions.each do |transaction| %>
             <tr>
-              <td><%= transaction.account_name %></td>
               <td><%= transaction.category_name %></td>
               <td><%= formatted_date(transaction.occurred_at) %></td>
-              <td><%= truncate(transaction.memo) %></td>
+              <td><%= transaction.memo %></td>
               <td><%= transaction.credit %></td>
               <td><%= transaction.debit %></td>
               <td>
                 <div class="btn-group" role="group">
-                  <%= link_to('Show', transaction, class: 'btn btn-sm btn-info', role: 'button') if policy(transaction).show? %>
                   <%= link_to('Edit', edit_transaction_path(transaction), class: 'btn btn-sm btn-warning') if policy(transaction).update? %>
                   <%= link_to('Delete', transaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger', role: 'button') if policy(transaction).destroy? %>
                 </div>
@@ -57,7 +51,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-3 col-md-offset-9">
+  <div class="col-md-12 pull-right">
     <%= link_to 'New Transaction', new_transaction_path, class: 'pull-right btn btn-primary' %>
   </div>
 </div>

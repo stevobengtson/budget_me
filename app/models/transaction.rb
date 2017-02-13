@@ -16,6 +16,11 @@ class Transaction < ApplicationRecord
     credit_value.zero? ? debit_value : credit_value
   end
 
+  def amount=(val)
+    credit = val if val.positive?
+    debit = (val * -1) if val.negative?
+  end
+
   private
 
   def credit_value

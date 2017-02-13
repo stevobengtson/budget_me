@@ -4,29 +4,15 @@ class AccountsController < ApplicationController
 
   # GET /accounts
   def index
+    @account = Account.new
     @accounts = policy_scope(Account)
   end
-
-  # GET /accounts/1
-  def show; end
-
-  # GET /accounts/new
-  def new
-    @account = Account.new
-  end
-
-  # GET /accounts/1/edit
-  def edit; end
 
   # POST /accounts
   def create
     @account = Account.new(account_params.merge(user: current_user))
-
-    if @account.save
-      redirect_to @account, notice: 'Account was successfully created.'
-    else
-      render :new
-    end
+    flash[:notice] = 'Account was successfully created.' if @account.save
+    redirect_to accounts_url
   end
 
   # PATCH/PUT /accounts/1

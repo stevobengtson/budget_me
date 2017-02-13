@@ -20,5 +20,12 @@ module Security
       return nil unless user.present?
       user if authenticated?(user.try(:remember_digest), remember_token)
     end
+
+    def authenticate_user(email, password)
+      user = User.find_by(email: email.downcase)
+      return nil unless user.present?
+      return user if Rails.env.development?
+      user if user.authenticate(password)
+    end
   end
 end

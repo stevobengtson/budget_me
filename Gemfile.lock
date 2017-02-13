@@ -41,15 +41,7 @@ GEM
     ansi (1.5.0)
     arel (7.1.4)
     ast (2.3.0)
-    autoprefixer-rails (6.7.0)
-      execjs
     bcrypt (3.1.11)
-    bootstrap-combobox (1.2.6)
-    bootstrap-sass (3.3.6)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
-    bootstrap3-datetimepicker-rails (4.17.43)
-      momentjs-rails (>= 2.8.1)
     bootstrap_form (2.5.3)
     builder (3.2.3)
     byebug (9.0.6)
@@ -125,8 +117,6 @@ GEM
       ruby-progressbar
     mocha (1.2.1)
       metaclass (~> 0.0.1)
-    momentjs-rails (2.17.1)
-      railties (>= 3.1)
     nenv (0.3.0)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
@@ -244,9 +234,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootstrap-combobox (~> 1.2, >= 1.2.6)
-  bootstrap-sass (~> 3.3.6)
-  bootstrap3-datetimepicker-rails (~> 4.17.43)
   bootstrap_form (~> 2.5.3)
   byebug (~> 9.0.6)
   faker (~> 1.7.3)
@@ -259,7 +246,6 @@ DEPENDENCIES
   listen (~> 3.0.5)
   minitest-reporters (~> 1.1.9)
   mocha (~> 1.2.1)
-  momentjs-rails (>= 2.9.0)
   pg (~> 0.18)
   pry (~> 0.10.4)
   pry-byebug (~> 3.4.2)

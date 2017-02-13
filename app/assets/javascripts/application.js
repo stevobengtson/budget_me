@@ -10,18 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap
-//= require moment
-//= require bootstrap-datetimepicker
-//= require bootstrap-combobox
 //= require turbolinks
 //= require_tree .
 //= require_self
 
-setTimeout(function(){
-  $(".alert.alert-info").fadeTo(500, 0, function(){
-    $(this).remove();
-  });
-}, 5000);
+$(document).ready(function(){
+  // Clear alerts after 5 seconds so we have a nicer display
+  setTimeout(function(){ $(".alert").alert('close') }, 5000);
+
+  // Enable all comboboxes
+  $('select.form-control').combobox();
+});

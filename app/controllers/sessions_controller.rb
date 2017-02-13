@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    user = Security.authenticate_user(params[:session][:email], params[:session][:password])
+    if user
       log_in user, params[:session][:remember_me].try(:true?)
       redirect_to transactions_url
     else
