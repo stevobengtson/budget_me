@@ -1,0 +1,4 @@
+<%= f.text_field :name %>
+<%= f.text_field :note %>
+<%= f.text_field :balance, label: 'Starting Balance', prepend: '$' %>
+<%= f.collection_select :account_type_id, AccountType.all, :id, :name %>

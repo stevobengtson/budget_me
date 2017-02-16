@@ -1,0 +1,6 @@
+<li>
+  <a href='#' class="pull-right text-success" data-toggle="modal" data-target="#add-account-modal">
+    <i class="fa fa-plus text-success"></i> Add Account
+  </a>
+  <%= render partial: 'accounts/form/dialog_form', locals: {account: Account.new} %>
+</li>

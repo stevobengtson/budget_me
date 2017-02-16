@@ -18,6 +18,6 @@ $(document).ready(function(){
   // Clear alerts after 5 seconds so we have a nicer display
   setTimeout(function(){ $(".alert").alert('close') }, 5000);
 
-  // Enable all comboboxes
-  $('select.form-control').combobox();
+  // Enable tooltips
+  $('[data-toggle="tooltip"]').tooltip();
 });

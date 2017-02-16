@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class SessionsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create, :signup]
+
   def new; end
 
   def create
@@ -11,6 +13,11 @@ class SessionsController < ApplicationController
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
+  end
+
+  # GET /signup
+  def signup
+    @user = User.new
   end
 
   def destroy

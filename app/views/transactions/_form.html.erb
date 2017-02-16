@@ -8,16 +8,6 @@
   <%= f.number_field :debit, prepend: '$' %>
   <%= f.form_group do %>
     <%= f.submit %>
+    <%= link_to 'Back', :back, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
-
-<script type="text/javascript">
-  $(function () {
-    $('#transaction_occurred_at').datetimepicker({
-      format: 'dddd, MMMM Do YYYY', // Sunday, February 5th 2017
-      defaultDate: "<%== Time.zone.now.to_s(:date_only) %>"
-    });
-
-    // $('#transaction_category_id').combobox();
-  });
-</script>

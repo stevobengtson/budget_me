@@ -1,13 +1,5 @@
 # frozen_string_literal: true
 ENV['RAILS_ENV'] ||= 'test'
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_group 'App Libraries', 'app/lib'
-
-  minimum_coverage 90
-  refuse_coverage_drop
-end
-
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'mocha/mini_test'

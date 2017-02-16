@@ -12,6 +12,8 @@ class Transaction < ApplicationRecord
 
   after_initialize :init
 
+  scope :for_account, ->(account) {where(account: account) if account.present?}
+
   def amount
     credit_value.zero? ? debit_value : credit_value
   end
@@ -19,6 +21,10 @@ class Transaction < ApplicationRecord
   def amount=(val)
     credit = val if val.positive?
     debit = (val * -1) if val.negative?
+  end
+
+  def full_category
+    "#{category.category_group_name}:#{category_name}"
   end
 
   private

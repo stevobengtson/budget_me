@@ -6,9 +6,6 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: budgetme
 
-  redis:
-    image: redis:3.2-alpine
-
   web:
     build: .
     command: ./bin/docker_server.sh

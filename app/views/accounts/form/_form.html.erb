@@ -1,0 +1,7 @@
+<%= bootstrap_form_for(account, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10', label_errors: true, remote: true) do |f| %>
+  <%= render partial: 'accounts/form/fields', locals: {f: f} %>
+  <%= f.form_group do %>
+    <%= f.submit %>
+    <%= link_to 'Back', :back, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>

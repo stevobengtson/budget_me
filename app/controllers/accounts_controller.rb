@@ -11,8 +11,12 @@ class AccountsController < ApplicationController
   # POST /accounts
   def create
     @account = Account.new(account_params.merge(user: current_user))
-    flash[:notice] = 'Account was successfully created.' if @account.save
-    redirect_to accounts_url
+
+    if @account.save
+      redirect_to transactions_url(account_id: @account.id), success: 'Account was successfully created.'
+    else
+      redirect_to transactions_url, alert: 'Error creating account.'
+    end
   end
 
   # PATCH/PUT /accounts/1
@@ -27,7 +31,7 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   def destroy
     @account.destroy
-    redirect_to accounts_url, notice: 'Account was successfully destroyed.'
+    redirect_to transactions_url, notice: 'Account was successfully destroyed.'
   end
 
   private

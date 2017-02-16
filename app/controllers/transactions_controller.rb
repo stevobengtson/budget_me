@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @transactions = policy_scope(Transaction).where(account: @account).order(occurred_at: :desc).page(params[:page])
+    @transactions = policy_scope(Transaction).for_account(@account).order(occurred_at: :desc).page(params[:page])
   end
 
   # GET /transactions/new
@@ -57,12 +57,20 @@ class TransactionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def transaction_params
+    credit_debit_params
     params.require(:transaction).permit(:account_id, :category_id, :occurred_at, :memo, :credit, :debit)
   end
 
   def set_account
-    @account = Account.find(params[:account_id]) if params.key?(:account_id)
-    @account ||= policy_scope(Account).first
+    return unless params.key?(:account_id)
+    @account = Account.find(params[:account_id])
     authorize @account, :show?
+  end
+
+  def credit_debit_params
+    return unless params.key?(:amount)
+    amount = params.delete(:amount).to_f
+    params[:credit] = amount if amount.positive? || amount == 0.0
+    params[:debit] = amount if amount.negative?
   end
 end

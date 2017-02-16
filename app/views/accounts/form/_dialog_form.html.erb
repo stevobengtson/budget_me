@@ -1,0 +1,18 @@
+<div class="modal fade" id="add-account-modal" tabindex="-1" role="dialog" aria-labelledby="AddAccountModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <%= bootstrap_form_for(account, layout: :horizontal, label_col: 'col-sm-3', control_col: 'col-sm-9', label_errors: true) do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Account</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'accounts/form/fields', locals: {f: f} %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit %>
+      </div>
+    <% end %> <!-- Form -->
+    </div>
+  </div>
+</div>

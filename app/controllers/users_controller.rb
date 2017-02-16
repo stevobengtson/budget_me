@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:create]
+
   # GET /profile
   def profile
     redirect_to root_url unless logged_in?
     @user = current_user
-  end
-
-  # GET /signup
-  def signup
-    @user = User.new
   end
 
   # POST /users

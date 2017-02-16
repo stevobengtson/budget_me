@@ -1,0 +1,23 @@
+<tr style="display:none;" class="edit-transaction-row" data-transactionid="<%= transaction.id || 0 %>">
+<%= bootstrap_form_for(transaction, layout: :vertical) do |f| %>
+  <% if account.nil? %>
+  <td><%= f.collection_select :account_id, policy_scope(Account), :id, :name, hide_label: true %></td>
+  <% else %>
+    <%= f.hidden_field :account_id, value: account.id %>
+  <% end %>
+  <td><%= f.text_field :occurred_at, label: 'Date', value: formatted_date, hide_label: true %></td>
+  <td><%= f.grouped_collection_select :category_id, policy_scope(CategoryGroup), :categories, :name, :id, :name, hide_label: true %></td>
+  <td><%= f.text_field :memo, hide_label: true %></td>
+  <td><%= f.text_field :amount, prepend: '$', hide_label: true %></td>
+  <td>
+    <%= f.form_group class: 'btn-group' do %>
+      <%= button_tag(type: 'submit', class: "btn btn-sm btn-success") do %>
+        <i class="fa fa-check"></i>
+      <% end %>
+      <%= link_to '#', class: 'btn btn-sm btn-info edit-transaction-row-close', data: {transactionid: transaction.id || 0} do %>
+        <i class="fa fa-times"></i>
+      <% end %>
+    <% end %>
+  </td>
+<% end %>
+</tr>

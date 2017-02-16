@@ -1,0 +1,19 @@
+<tr id="transaction_row_<%= transaction.id %>">
+  <% if account.nil? %><td><%= transaction.account_name %></td><% end %>
+  <td><%= list_date(transaction.occurred_at) %></td>
+  <td><%= transaction.full_category %></td>
+  <td><%= transaction.memo %></td>
+  <td>
+    <span class="pull-right <%= amount_color(transaction.amount) %>">
+      <%= currency(transaction.amount) %>
+    </span>
+  </td>
+  <td>
+    <div class="btn-group" role="group">
+      <%= link_to '#', class: 'btn btn-sm btn-warning edit-transaction-row-button', data: {transactionid: transaction.id || 0} do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+      <%= delete_button(transaction) %>
+    </div>
+  </td>
+</tr>

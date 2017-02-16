@@ -8,10 +8,16 @@ ul.labels-info li h4 {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 5px;
-    text-transform: uppercase;
 }
 ul.labels-info li {
     margin: 0;
+}
+ul.nav-edit {
+    margin-bottom: 0;
+}
+ul.nav-edit li.account-link {
+    display:inline-block;
+    width: 80%;
 }
 ul.labels-info li a {
     border-radius: 0;
@@ -21,8 +27,8 @@ ul.labels-info li a:hover, ul.labels-info li a:focus {
     background: none repeat scroll 0 0 #d5d7de;
     color: #6a6a6a;
 }
-ul.labels-info li a i {
-    padding-right: 10px;
+ul.labels-info li.sub-pill {
+    margin-left: 20px;
 }
 .nav.nav-pills.nav-stacked.labels-info p {
     color: #9d9f9e;

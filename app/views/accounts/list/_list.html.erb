@@ -1,0 +1,5 @@
+<ul class="nav nav-pills nav-stacked labels-info" id="account_list">
+  <li class="<%= active_transaction_link? %>"><%= link_to 'All Accounts', transactions_url, id: 'all_accounts_link' %></li>
+  <%= render partial: 'accounts/list/account', collection: accounts_list %>
+  <%= render partial: 'accounts/list/add_account' %>
+</ul>

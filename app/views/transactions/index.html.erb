@@ -1,57 +1,59 @@
 <div class="row">
-  <div class="col-md-10">
-    Transactions for account <%= @account.name %>
-  </div>
-  <div class="col-md-2 pull-right">
-    <%= link_to 'New Transaction', new_transaction_path, class: 'pull-right btn btn-primary' %>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-md-12">
-    <div class="table-responsive">
-      <table class="table table-hover table-condensed table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Date</th>
-            <th>Memo</th>
-            <th>Credit</th>
-            <th>Debit</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+    <div class="panel panel-default panel-table">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col col-xs-6">
+            <h3 class="panel-title"><%= @account.present? ? @account.name : 'All Accounts' %></h3>
+          </div>
+          <div class="col col-xs-6 text-right">
+            <%= link_to('#', class: "btn btn-success edit-transaction-row-button", data: {transactionid: 0}) do %>
+              <i class="fa fa-plus"></i> Transaction
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-        <tbody>
-          <% @transactions.each do |transaction| %>
+      <div class="panel-body">
+        <table class="table table-hover table-condensed table-bordered table-striped table-list">
+          <thead>
             <tr>
-              <td><%= transaction.category_name %></td>
-              <td><%= formatted_date(transaction.occurred_at) %></td>
-              <td><%= transaction.memo %></td>
-              <td><%= transaction.credit %></td>
-              <td><%= transaction.debit %></td>
-              <td>
-                <div class="btn-group" role="group">
-                  <%= link_to('Edit', edit_transaction_path(transaction), class: 'btn btn-sm btn-warning') if policy(transaction).update? %>
-                  <%= link_to('Delete', transaction, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger', role: 'button') if policy(transaction).destroy? %>
-                </div>
-              </td>
+              <% if @account.nil? %><th>Account</th><% end %>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Memo</th>
+              <th>Amount</th>
+              <th>Actions</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            <%= render partial: 'row_add', locals: {transaction: Transaction.new, account: @account} %>
+            <% @transactions.each do |transaction| %>
+              <%= render partial: 'row', locals: {transaction: transaction, account: @account} %>
+              <%= render partial: 'row_add', locals: {transaction: transaction, account: @account} %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col col-xs-4">
+            <%= page_entries_info @transactions %>
+          </div>
+          <div class="col col-xs-8">
+            <%= paginate @transactions, class: 'pull-right' %>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <%= paginate @transactions %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12 pull-right">
-    <%= link_to 'New Transaction', new_transaction_path, class: 'pull-right btn btn-primary' %>
-  </div>
-</div>
+<script>
+  $(function () {
+    Transactions.init();
+  });
+</script>
