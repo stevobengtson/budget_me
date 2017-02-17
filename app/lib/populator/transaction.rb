@@ -11,14 +11,12 @@ module Populator
     end
 
     def generate
-      credit_value, debit_value = amount
       ::Transaction.create(
         account: account,
         category: category,
         occurred_at: Faker::Date.between(2.years.ago, Date.today),
         memo: Faker::Lorem.sentence,
-        credit: credit_value,
-        debit: debit_value
+        amount: amount
       )
     end
 
@@ -34,10 +32,9 @@ module Populator
     end
 
     def amount
+      value = Faker::Number.decimal(5, 2).to_f
       credit = Faker::Boolean.boolean
-      credit_value = credit ? Faker::Number.decimal(5, 2) : nil
-      debit_value = credit ? nil : Faker::Number.decimal(5, 2)
-      [credit_value, debit_value]
+      credit ? value : (value * -1.0)
     end
   end
 end

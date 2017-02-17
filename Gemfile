@@ -14,7 +14,7 @@ gem 'bootstrap_form', '~> 2.5.3'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.2.2'
 gem 'kaminari', '~> 1.0.1'
-gem 'pg', '~> 0.18'
+gem 'mysql2', '~> 0.4.5'
 gem 'puma', '~> 3.0'
 gem 'pundit', '~> 1.1.0'
 gem 'rails', '~> 5.0.1'
@@ -23,8 +23,10 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '~> 3.0.4'
 
 group :development, :test do
+  gem 'byebug', '~> 9.0.6'
   gem 'faker', '~> 1.7.3'
   gem 'pry', '~> 0.10.4'
+  gem 'pry-byebug', '~> 3.4.2'
   gem 'pry-rails', '~> 0.3.4'
 end
 

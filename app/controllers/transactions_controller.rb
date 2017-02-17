@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class TransactionsController < ApplicationController
-  before_action :ensure_accounts
   before_action :set_account, only: %i(index new)
   before_action :set_transaction, only: %i(show edit update destroy)
 
@@ -45,11 +44,6 @@ class TransactionsController < ApplicationController
 
   private
 
-  def ensure_accounts
-    return true if current_user.accounts.count.positive?
-    redirect_to accounts_url, notice: 'You need to create an account before accessing transactions'
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
@@ -57,20 +51,12 @@ class TransactionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def transaction_params
-    credit_debit_params
-    params.require(:transaction).permit(:account_id, :category_id, :occurred_at, :memo, :credit, :debit)
+    params.require(:transaction).permit(:account_id, :category_id, :occurred_at, :memo, :amount)
   end
 
   def set_account
     return unless params.key?(:account_id)
     @account = Account.find(params[:account_id])
     authorize @account, :show?
-  end
-
-  def credit_debit_params
-    return unless params.key?(:amount)
-    amount = params.delete(:amount).to_f
-    params[:credit] = amount if amount.positive? || amount == 0.0
-    params[:debit] = amount if amount.negative?
   end
 end

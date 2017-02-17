@@ -14,28 +14,11 @@ class Transaction < ApplicationRecord
 
   scope :for_account, ->(account) {where(account: account) if account.present?}
 
-  def amount
-    credit_value.zero? ? debit_value : credit_value
-  end
-
-  def amount=(val)
-    credit = val if val.positive?
-    debit = (val * -1) if val.negative?
-  end
-
   def full_category
     "#{category.category_group_name}:#{category_name}"
   end
 
   private
-
-  def credit_value
-    credit.nil? ? 0.00 : credit
-  end
-
-  def debit_value
-    debit.nil? ? 0.00 : (debit * -1)
-  end
 
   def init
     self.occurred_at ||= Time.zone.now.beginning_of_day
