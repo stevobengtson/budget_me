@@ -10,6 +10,7 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap_form', '~> 2.5.3'
+gem 'figaro', '~> 1.1.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.2.2'
@@ -31,6 +32,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.7.2'
+  gem 'capistrano3-puma', '~> 1.2.1'
+  gem 'capistrano-rails', '~> 1.2.2', require: false
+  gem 'capistrano-bundler', '~> 1.2.0', require: false
+  gem 'capistrano-rvm', '~> 0.1.2'
   gem 'listen', '~> 3.0.5'
   gem 'rubocop', '~> 0.47.1', require: false
   gem 'spring', '~> 2.0.1'

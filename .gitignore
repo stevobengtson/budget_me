@@ -24,3 +24,6 @@
 
 # Ignore env file
 .env
+
+config/database.yml
+config/application.yml
