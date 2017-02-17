@@ -9,7 +9,7 @@ set :repo_url, 'git@bitbucket.org:sbengtson/budget_me.git'
 set :branch, :master
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deploy/budget_me'
+set :deploy_to, '/data/budget_me'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
